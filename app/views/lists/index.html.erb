@@ -1,0 +1,18 @@
+<div class="banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url "banner" %>);">
+  <div class="container">
+    <h1>Enregistez vos listes de films et partagez les !</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h2>Mes listes !</h2>
+
+  </div>
+  <div class="lists">
+    <% @lists.each do |list| %>
+      <div class="list-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= list.name %>
+      </div>
+    <% end %>
+  </div>
+</div>
