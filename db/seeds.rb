@@ -27,20 +27,25 @@ movies.each do |movie|
 end
 
 
-%w[top flop].each do |name|
+%w[top flop batch-2362].each do |name|
   List.create!(
     name: name,
   )
 end
 
-5.times do
+i = List.first.id
+3.times do
   Bookmark.create!(
     comment: "Lorem Ipsum",
     movie: Movie.all.sample,
-    list: List.all.sample
+    list: List.find(i)
   )
+  i += 1
 end
 
+List.all.each do |list|
+  list.update(poster_url: list.movies.pluck(:poster_url).sample)
+end
 puts "#{Movie.count} créés"
 puts "#{List.count} créées"
 puts "#{Bookmark.count} créés"

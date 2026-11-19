@@ -1,0 +1,4 @@
+<%= render "shared/header", title: "Il est temps de créer votre liste !", banner: Movie.pluck(:poster_url).sample %>
+<div class="container">
+  <%= render "form", list: @list %>
+</div>

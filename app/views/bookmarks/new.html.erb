@@ -1,0 +1,3 @@
+<%= render "shared/header", title: "Créé ta liste", banner: Movie.pluck(:poster_url).sample %>
+
+<%= render "form", bookmark: @bookmark, list: @list %>

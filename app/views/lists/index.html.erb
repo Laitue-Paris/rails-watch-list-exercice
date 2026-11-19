@@ -1,6 +1,6 @@
-<%= render "header", title: "Enregistez vos listes de films et partagez les !" %>
+<%= render "shared/header", title: "Enregistez vos listes de films et partagez les !", banner: asset_url("banner") %>
 
-<div class="container">
+<div class="container my-4">
   <div class="d-flex justify-content-between">
     <h2>Mes listes !</h2>
 
@@ -8,7 +8,7 @@
   <div class="lists">
     <% @lists.each do |list| %>
       <%= link_to list_path(list) do %>
-        <div class="list-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <div class="list-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.poster_url %>)">
           <%= list.name %>
         </div>
       <% end %>

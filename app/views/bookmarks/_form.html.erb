@@ -1,0 +1,11 @@
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6 text-dark">
+      <%= simple_form_for [list, bookmark] do |f| %>
+        <%= f.input :comment %>
+        <%= f.association :movie, collection: Movie.all %>
+        <%= f.submit "Save", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
