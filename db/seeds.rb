@@ -26,21 +26,17 @@ movies.each do |movie|
   )
 end
 
+puts "now the lists"
+movies = Movie.all.to_a
 
 %w[top flop batch-2362].each do |name|
-  List.create!(
-    name: name,
-  )
-end
+  list = List.create!(name: name)
+  available = movies.dup
 
-i = List.first.id
-3.times do
-  Bookmark.create!(
-    comment: "Lorem Ipsum",
-    movie: Movie.all.sample,
-    list: List.find(i)
-  )
-  i += 1
+  rand(2..6).times do
+    movie = available.delete(available.sample)
+    Bookmark.create!(comment: "Lorem Ipsum", movie: movie, list: list)
+  end
 end
 
 List.all.each do |list|
