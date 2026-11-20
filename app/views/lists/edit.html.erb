@@ -1,0 +1,4 @@
+<%= render "shared/header", title: "Mettons à jour #{@list.name}", banner: @list.poster_url ? @list.poster_url : "banner" %>
+<div class="container">
+  <%= render "form", list: @list %>
+</div>
